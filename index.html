@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -254,7 +255,7 @@
 
             <div class="payment-info">
                 <h2>💳 Sobre o pagamento</h2>
-                <p>Fiquem tranquilos que o pagamento será feito <strong>diretamente para a agência de viagens</strong>, sem passar por ninguém da nossa organização ou professores. Tudo direto e seguro, sem intermediários!</p>
+                <p>Fiquem tranquilos que o pagamento será feito <strong>diretamente para a agência de viagens</strong>, sem passar por ninguémm da nossa organização ou professores. Tudo direto e seguro, sem intermediários!</p>
             </div>
 
             <div class="security-info">
@@ -293,7 +294,7 @@
             '482651', '809314', '146825', '573098', '921467',
             '638250', '704193', '259476', '386529', '512874',
             '647901', '830215', '964782', '201356', '579463',
-            '000002', '000001'
+            '000001', '000002' // Adicionado o código '000001' à lista de códigos válidos
         ];
 
         const usedCodes = new Set();
@@ -313,33 +314,25 @@
             participantsContainer.appendChild(participantDiv);
         }
 
-        // Confirma "Lord Anon" com o código "000001"
-        function confirmLordAnon() {
-            const name = 'Lord Anon';
-            const code = '000001';
-            const participantItem = participantsContainer.children[0]; // Assume que é o primeiro item
-            
-            if (participantItem) {
-                const nameInput = participantItem.querySelector('.name-input');
-                const codeInput = participantItem.querySelector('.confirmation-input');
-                const confirmedSpan = participantItem.querySelector('.confirmed');
-                
-                nameInput.value = name;
-                codeInput.value = code;
-                nameInput.disabled = true;
-                codeInput.disabled = true;
-                participantItem.querySelector('.confirmation-button').style.display = 'none'; // Esconde o botão
-                confirmedSpan.style.display = 'inline';
-                participantItem.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
-                participantItem.style.borderLeft = '4px solid #4CAF50';
-                usedCodes.add(code); // Marca o código como usado
-            }
+        // Pré-preenche o primeiro item com as informações de "Lord Anon"
+        const firstParticipant = participantsContainer.children[0];
+        if (firstParticipant) {
+            const nameInput = firstParticipant.querySelector('.name-input');
+            const codeInput = firstParticipant.querySelector('.confirmation-input');
+            const confirmButton = firstParticipant.querySelector('.confirmation-button');
+            const confirmedSpan = firstParticipant.querySelector('.confirmed');
+
+            nameInput.value = 'Lord Anon';
+            nameInput.disabled = true;
+            codeInput.value = '000001';
+            codeInput.disabled = true;
+            confirmButton.style.display = 'none'; // Esconde o botão de confirmar para este item
+            confirmedSpan.style.display = 'inline';
+            firstParticipant.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
+            firstParticipant.style.borderLeft = '4px solid #4CAF50';
+            usedCodes.add('000001'); // Adiciona o código como já usado
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            confirmLordAnon(); // Chama a função para pré-confirmar
-        });
-        
         document.querySelectorAll('.name-input').forEach(input => {
             input.addEventListener('input', function() {
                 const participantItem = this.closest('.participant-item');
@@ -398,3 +391,4 @@
       const analytics = getAnalytics(app);
     </script>
 </html>
+```
