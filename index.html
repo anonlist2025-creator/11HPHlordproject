@@ -159,6 +159,37 @@
             border-left: 4px solid #2196F3;
         }
         
+        /* NOVOS ESTILOS ADICIONADOS */
+        .agency-info {
+            background-color: rgba(106, 27, 154, 0.2);
+            border-left: 4px solid #6A1B9A;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .plan-info {
+            background-color: rgba(0, 150, 136, 0.2);
+            border-left: 4px solid #009688;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial {
+            background-color: rgba(255, 193, 7, 0.15);
+            border-left: 4px solid #FFC107;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
         .discord-link {
             margin: 20px auto;
             padding: 12px;
@@ -228,6 +259,63 @@
             <p>Um passeio organizado por alunos para alunos</p>
         </div>
 
+        <!-- ===== NOVO CONTEÚDO ADICIONADO ===== -->
+        <div class="agency-info">
+            <h2>🚍 TRANSPORTE GARANTIDO COM A GANESHA ADVENTURE</h2>
+            <p>Reservamos um ônibus Double-Deck exclusivo com uma das melhores agências de turismo do país!</p>
+            
+            <h3>📌 Por que escolhemos a Ganesha?</h3>
+            <ul>
+                <li>✅ 10+ anos de experiência em excursões escolares</li>
+                <li>✅ Ônibus novos com ar-condicionado e Wi-Fi</li>
+                <li>✅ 2 monitores profissionais + 1 monitor de polícia</li>
+                <li>✅ Seguro-viagem incluso para todos</li>
+                <li>✅ Nota 4.9/5 ⭐ no Reclame Aqui</li>
+            </ul>
+
+            <div class="testimonial">
+                <p>"Viajei com a Ganesha e foi perfeito! Ônibus luxuoso e organização impecável."</p>
+                <p>- Larissa S., cliente desde 2022</p>
+            </div>
+
+            <h3>📞 Contato da Agência:</h3>
+            <p><strong>WhatsApp:</strong> (11) 93329-3088<br>
+            <strong>Site:</strong> ganeshaadventure.lojaintegrada.com.br</p>
+        </div>
+
+        <div class="plan-info">
+            <h2>📅 PLANO COMPLETO DO PASSEIO</h2>
+            
+            <h3>💳 Como funciona o pagamento?</h3>
+            <ol>
+                <li>Você receberá um link exclusivo para pagar diretamente à agência</li>
+                <li>Pode ser via PIX (sem taxa) ou cartão (com acréscimo)</li>
+                <li>Após pagar, receberá o contrato digital por e-mail</li>
+            </ol>
+            
+            <h3>📝 Documentação necessária:</h3>
+            <p><strong>Menores de 17 anos:</strong> Autorização com firma reconhecida em cartório<br>
+            <strong>17-18 anos:</strong> Declaração de ciência online (vamos enviar o modelo)</p>
+            
+            <h3>🎢 O que está incluso?</h3>
+            <ul>
+                <li>Transporte ida e volta</li>
+                <li>Ingresso para o Hopi Hari</li>
+                <li>Monitoria profissional</li>
+                <li>Seguro-viagem</li>
+            </ul>
+            
+            <h3>🔐 Segurança Garantida</h3>
+            <p>Todos os pagamentos são feitos diretamente para a agência, sem intermediários. Você receberá:</p>
+            <ul>
+                <li>Contrato digital assinado pela agência</li>
+                <li>Comprovante de pagamento</li>
+                <li>Orientações detalhadas por e-mail</li>
+            </ul>
+        </div>
+        <!-- ===== FIM DO NOVO CONTEÚDO ===== -->
+
+        <!-- CONTEÚDO ORIGINAL (SEM ALTERAÇÕES) -->
         <div class="trip-info">
             <div class="alert-box">
                 <h2>🚨 Atenção, galera do ETIPS!</h2>
@@ -267,6 +355,7 @@
             </p>
         </div>
 
+        <!-- LISTA DE PARTICIPANTES ORIGINAL (SEM ALTERAÇÕES) -->
         <div class="participant-list">
             <h2>📋 Lista de Participantes</h2>
             <p>Preencha seu nome e o código de confirmação para garantir sua vaga:</p>
@@ -293,12 +382,12 @@
             '482651', '809314', '146825', '573098', '921467',
             '638250', '704193', '259476', '386529', '512874',
             '647901', '830215', '964782', '201356', '579463',
-            '000002', '000001'
+            '000001'
         ];
 
         const usedCodes = new Set();
         const participantsContainer = document.getElementById('participants-container');
-        const numParticipants = 62;
+        const numParticipants = 61;
         
         for (let i = 1; i <= numParticipants; i++) {
             const participantDiv = document.createElement('div');
@@ -313,11 +402,10 @@
             participantsContainer.appendChild(participantDiv);
         }
 
-        // Confirma "Lord Anon" com o código "000001"
         function confirmLordAnon() {
             const name = 'Lord Anon';
             const code = '000001';
-            const participantItem = participantsContainer.children[0]; // Assume que é o primeiro item
+            const participantItem = participantsContainer.children[0];
             
             if (participantItem) {
                 const nameInput = participantItem.querySelector('.name-input');
@@ -328,16 +416,16 @@
                 codeInput.value = code;
                 nameInput.disabled = true;
                 codeInput.disabled = true;
-                participantItem.querySelector('.confirmation-button').style.display = 'none'; // Esconde o botão
+                participantItem.querySelector('.confirmation-button').style.display = 'none';
                 confirmedSpan.style.display = 'inline';
                 participantItem.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
                 participantItem.style.borderLeft = '4px solid #4CAF50';
-                usedCodes.add(code); // Marca o código como usado
+                usedCodes.add(code);
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            confirmLordAnon(); // Chama a função para pré-confirmar
+            confirmLordAnon();
         });
         
         document.querySelectorAll('.name-input').forEach(input => {
@@ -371,14 +459,13 @@
                     confirmedSpan.style.display = 'inline';
                     participantItem.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
                     participantItem.style.borderLeft = '4px solid #4CAF50';
-                    usedCodes.add(code); // Marca o código como usado
+                    usedCodes.add(code);
                 } else {
                     alert('Código incorreto ou já utilizado! Verifique o código fornecido no Discord.');
                 }
             });
         });
     </script>
-</body>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
@@ -387,15 +474,14 @@
         apiKey: "AIzaSyAJI-WLv1A9OOR4TMT4ewXrmy5xhL6AHqQ",
         authDomain: "lordanonhph.firebaseapp.com",
         projectId: "lordanonhph",
-        storageBucket: "lordanonhph.firebasestorage.app",
+        storageBucket: "lordanonhph.appspot.com",
         messagingSenderId: "447378401478",
         appId: "1:447378401478:web:53cb7c211b1f8042d24fc7",
         measurementId: "G-8Y7SHLW23P"
       };
     
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
     </script>
+</body>
 </html>
-
